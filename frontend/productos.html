@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Productos</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/sidebar.css">
+
+</head>
+
+<body>
+
+<div id="sidebar-container"></div>
+
+<div class="main">
+
+    <h1 class="page-title">
+
+        <i class="fa-solid fa-box"></i>
+
+        Productos
+
+    </h1>
+
+    <div class="card">
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label>Producto</label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Categoría</label>
+
+                <select id="categoria">
+
+                    <option value="1">TORTAS</option>
+                    <option value="2">PASTELES</option>
+                    <option value="3">EMPANADAS</option>
+                    <option value="4">POSTRES</option>
+                    <option value="5">EMBOLSADOS</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Precio</label>
+
+                <input
+                    type="number"
+                    id="precio"
+                >
+
+            </div>
+
+        </div>
+
+        <button
+            id="btnGuardar"
+            class="btn"
+            onclick="guardarProducto()"
+        >
+            <i class="fa-solid fa-floppy-disk"></i>
+            Guardar
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label>Buscar producto</label>
+
+                <input
+                    type="text"
+                    id="buscar"
+                    placeholder="Buscar..."
+                    onkeyup="filtrarProductos()"
+                >
+
+            </div>
+
+        </div>
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tablaProductos">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="js/sidebar.js"></script>
+<script src="js/usuarioSidebar.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/logout.js"></script>
+<script src="js/productos.js"></script>
+
+</body>
+</html>

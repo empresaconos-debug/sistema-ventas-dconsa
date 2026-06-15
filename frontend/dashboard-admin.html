@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panel Admin</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/sidebar.css">
+
+</head>
+
+<body>
+
+<div id="sidebar-container"></div>
+
+<div class="main">
+
+    <h1 class="page-title">
+        Dashboard Administrativo
+    </h1>
+
+    <div class="card">
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label>
+                    Desde
+                </label>
+
+                <input
+                    type="date"
+                    id="fechaInicio"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+                    Hasta
+                </label>
+
+                <input
+                    type="date"
+                    id="fechaFin"
+                >
+
+            </div>
+
+            <button
+                class="btn"
+                onclick="cargarDashboard()"
+            >
+                Consultar
+            </button>
+
+        </div>
+
+    </div>
+
+    <div
+        id="dashboardResumen"
+        class="cards"
+    >
+
+        <div class="card">
+
+            <h3>
+                🧾 Ventas
+            </h3>
+
+            <h2 id="totalVentas">
+                0
+            </h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                💰 S/ Vendido
+            </h3>
+
+            <h2 id="totalVendido">
+                S/ 0.00
+            </h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                ⭐ Producto Estrella
+            </h3>
+
+            <h2 id="productoEstrella">
+                -
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+            <h3>
+                📈 Ventas del Día
+            </h3>
+
+            <div
+                style="height:300px;"
+            >
+
+                <canvas
+                    id="graficoVentasDia"
+                ></canvas>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+        <h3>
+            📊 Ventas del Mes
+        </h3>
+
+        <div
+            style="
+                height:300px;
+                position:relative;
+            "
+        >
+
+            <canvas
+                id="graficoVentasMes"
+            ></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>
+            Comparativo Tiendas
+        </h3>
+
+        <div
+            style="
+                height:350px;
+                position:relative;
+            "
+        >
+
+            <canvas
+                id="graficoTiendas"
+            ></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/logout.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/usuarioSidebar.js"></script>
+<script src="js/dashboard-admin.js"></script>
+
+</body>
+</html>

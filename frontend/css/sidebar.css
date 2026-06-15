@@ -1,0 +1,93 @@
+.sidebar{
+
+    width:240px;
+
+    height:100vh;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    background:var(--color-principal);
+
+    color:white;
+
+}
+
+.logo{
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+.usuario-info{
+
+    margin-top:15px;
+
+    padding-top:15px;
+
+    border-top:1px solid rgba(255,255,255,.3);
+
+}
+
+#nombreRol{
+
+    font-size:15px;
+
+    font-weight:bold;
+
+}
+
+#nombreUsuario{
+
+    margin-top:5px;
+
+    font-size:13px;
+
+    opacity:.9;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    padding:15px 20px;
+
+    cursor:pointer;
+
+}
+
+.sidebar li:hover{
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.sidebar i{
+
+    width:25px;
+
+}
+
+@media(max-width:768px){
+
+    .sidebar{
+
+        width:100%;
+
+        height:auto;
+
+        position:relative;
+
+    }
+
+}

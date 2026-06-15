@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Historial de Ventas</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/sidebar.css">
+
+</head>
+
+<body>
+
+<div id="sidebar-container"></div>
+
+<div class="main">
+
+    <div class="page-header">
+
+        <h1 class="page-title">
+            🧾 Historial de Ventas
+        </h1>
+
+        <p class="page-subtitle">
+            Consulta de ventas registradas
+        </p>
+
+    </div>
+
+
+    <div class="card" id="filtrosCard">
+
+    <div class="form-row">
+
+        <div class="form-group">
+
+            <label>
+                Fecha
+            </label>
+
+            <input
+                type="date"
+                id="filtroFecha"
+            >
+
+        </div>
+
+        <div class="form-group" id="filtroTiendaContainer">
+
+            <label>
+                Tienda
+            </label>
+
+            <select id="filtroTienda">
+
+                <option value="">
+                    Todas
+                </option>
+
+                <option value="1">
+                    CONO 1
+                </option>
+
+                <option value="2">
+                    CONO 2
+                </option>
+
+                <option value="3">
+                    CONO 3
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <button class="btn" onclick="cargarVentas()">
+        Consultar
+    </button>
+
+    <button class="btn" onclick="exportarExcel()">
+    📊 Exportar Excel
+</button>
+
+</div>
+
+
+<div class="card">
+
+        <table class="table">
+
+            <thead id="cabeceraVentas">
+
+            </thead>
+
+            <tbody id="tablaVentas">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div
+    id="modalDetalle"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h3>
+                Detalle Venta
+            </h3>
+
+            <button
+                class="btn-close"
+                onclick="cerrarDetalle()"
+            >
+                ✖
+            </button>
+
+        </div>
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Producto</th>
+                    <th>Cant.</th>
+                    <th>Precio</th>
+                    <th>Subtotal</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="detalleVenta">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/usuarioSidebar.js"></script>
+<script src="js/impresion.js"></script>
+<script src="js/ventas-historial.js"></script>
+<script src="js/logout.js"></script>
+
+</body>
+</html>

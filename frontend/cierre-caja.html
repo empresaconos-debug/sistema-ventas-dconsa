@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cierre de Caja</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+   
+
+</head>
+
+<body>
+
+    <div id="sidebar-container">
+    </div>
+
+    <div class="main">
+
+        <div class="page-header">
+
+            <h1 class="page-title">
+                💰 Cierre de Caja
+            </h1>
+
+            <p class="page-subtitle">
+                Resumen de ventas del día
+            </p>
+
+            <div
+                id="adminFiltros"
+                class="card"
+                style="display:none;"
+            >
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Fecha
+                        </label>
+
+                        <input
+                            type="date"
+                            id="filtroFecha"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Tienda
+                        </label>
+
+                        <select id="filtroTienda">
+
+                            <option value="">
+                                Todas
+                            </option>
+
+                            <option value="1">
+                                Cono 1
+                            </option>
+
+                            <option value="2">
+                                Cono 2
+                            </option>
+
+                            <option value="3">
+                                Cono 3
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <button
+                        class="btn"
+                        onclick="cargarCierres()"
+                    >
+                        Consultar
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div
+                class="card"
+                id="adminTabla"
+                style="display:none;"
+            >
+
+                <table class="table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Fecha
+                            </th>
+
+                            <th>
+                                Tienda
+                            </th>
+
+                            <th>
+                                Ventas
+                            </th>
+
+                            <th>
+                                Total
+                            </th>
+
+                            <th>
+                                Acción
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaCierres">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="card" id="cardResumenCaja">
+
+            <div
+                id="resumenCaja"
+                class="form-row"
+            >
+
+                <div class="form-group">
+
+                    <label>
+                        Fecha
+                    </label>
+
+                    <div id="fechaCaja">
+                        -
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Ventas del Día
+                    </label>
+
+                    <div id="ventasDia">
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card" id="cardDetalleCaja">
+
+            <h3>
+                Detalle de Ventas
+            </h3>
+
+            <table class="table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Producto
+                        </th>
+
+                        <th>
+                            Cantidad
+                        </th>
+
+                        <th>
+                            Pago
+                        </th>
+
+                        <th>
+                            Total
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="detalleCaja">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="card" id="cardTotalesCaja">
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        Total Efectivo
+                    </label>
+
+                    <div id="totalEfectivo">
+                        S/ 0.00
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Total Yape
+                    </label>
+
+                    <div id="totalYape">
+                        S/ 0.00
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Total Tarjeta
+                    </label>
+
+                    <div id="totalTarjeta">
+                        S/ 0.00
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Total General
+                    </label>
+
+                    <div id="totalGeneral">
+                        S/ 0.00
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="estadoCaja"
+            class="card"
+            style="
+                display:none;
+                text-align:center;
+                font-size:24px;
+                font-weight:bold;
+                color:red;
+            "
+        >
+
+        </div>
+
+        <div class="form-row" id="accionesCaja">
+
+            <button
+                class="btn"
+                onclick="imprimirCaja()"
+            >
+                <i class="fa-solid fa-print"></i>
+                Imprimir
+            </button>
+
+            <button
+                class="btn"
+                onclick="cerrarCaja()"
+            >
+                <i class="fa-solid fa-cash-register"></i>
+                Cerrar Caja
+            </button>
+
+        </div>
+
+
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/usuarioSidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qz-tray/qz-tray.js"></script>
+    <script src="js/impresion.js"></script>
+    <script src="js/cierre-caja.js"></script>
+    <script src="js/logout.js"></script>
+    <div id="ticketCaja" style="display:none;"></div>
+
+    <div
+    id="modalDetalleCierre"
+    class="modal"
+    style="display:none;"
+>
+
+    <div
+        class="modal-content"
+        style="
+            width:900px;
+            max-width:95%;
+        "
+    >
+
+        <div
+            class="modal-header"
+        >
+
+            <h2>
+                Detalle del Cierre
+            </h2>
+
+            <span
+                onclick="cerrarDetalleCierre()"
+                style="
+                    cursor:pointer;
+                    font-size:24px;
+                "
+            >
+                &times;
+            </span>
+
+        </div>
+
+        <div
+            id="infoDetalleCierre"
+        >
+
+        </div>
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Producto
+                    </th>
+
+                    <th>
+                        Cantidad
+                    </th>
+
+                    <th>
+                        Pago
+                    </th>
+
+                    <th>
+                        Total
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody
+                id="detalleCierreBody"
+            >
+
+            </tbody>
+
+        </table>
+
+        <hr>
+
+        <h3>
+            🍰 Porcionamientos
+        </h3>
+
+        <div
+            id="porcionamientosCierre"
+        >
+
+        </div>
+
+        <hr>
+
+        <h3>
+            🗑 Descartes
+        </h3>
+
+        <div
+            id="descartesCierre"
+        >
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

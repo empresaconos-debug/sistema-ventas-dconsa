@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Stock</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/sidebar.css">
+
+
+</head>
+
+<body>
+
+<div id="sidebar-container"></div>
+
+<div class="main">
+
+    <div class="page-header"id="gestionStockHeader">
+
+        <h1 class="page-title">
+            📦 Gestión de Stock
+        </h1>
+
+        <p class="page-subtitle">
+            Control de inventario por tienda
+        </p>
+
+    </div>
+
+    <div class="card" id="gestionStockCard">
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label>Tienda</label>
+
+                <select id="tienda">    
+
+                    <option value="1">
+                        Cono 1
+                    </option>
+
+                    <option value="2">
+                        Cono 2
+                    </option>
+
+                    <option value="3">
+                        Cono 3
+                    </option>
+
+                </select>
+
+
+            </div>
+
+            <button 
+                class="btn"
+                
+                onclick="cargarStock()">
+                Consultar
+            </button>
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="card">
+
+        <input
+            type="text"
+            id="buscar"
+            placeholder="🔍 Buscar producto..."
+            onkeyup="filtrarStock()"
+        >
+
+    </div>
+
+    <div class="table-header">
+
+        <h2 id="tituloStockTienda">
+            Stock por Tienda
+        </h2>
+
+        <button
+            class="btn"
+            onclick="abrirModalStock()"
+        >
+          Registrar Stock
+        </button>
+
+        <div class="form-row">
+
+        <button
+            class="btn"
+            onclick="abrirModalPorcionar()"
+        >
+            🍰 Porcionar
+        </button>
+
+        <button
+            class="btn"
+            onclick="abrirModalDescarte()"
+        >
+            🗑 Descartar
+        </button>
+
+</div>
+
+    </div>
+
+    <div class="card">
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Estado</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tablaStock">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div
+    id="modalStock"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h3>
+                Registrar Stock
+            </h3>
+
+            <button
+                class="btn-close"
+                onclick="cerrarModalStock()"
+            >
+                ✖
+            </button>
+
+        </div>
+
+        <div class="form-group" id="grupoTiendaStock">
+
+            <label>
+                Tienda
+            </label>
+
+            <select id="tiendaIngreso">
+
+                <option value="1">
+                    Cono 1
+                </option>
+
+                <option value="2">
+                    Cono 2
+                </option>
+
+                <option value="3">
+                    Cono 3
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Producto
+            </label>
+
+            <select id="productoIngreso">
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Cantidad
+            </label>
+
+            <input
+                type="number"
+                id="cantidadIngreso"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Observación
+            </label>
+
+            <textarea
+                id="observacionIngreso"
+            ></textarea>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+                class="btn"
+                onclick="cerrarModalStock()"
+            >
+                Cancelar
+            </button>
+
+            <button
+                class="btn"
+                onclick="registrarStock()"
+            >
+                Guardar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/usuarioSidebar.js"></script>
+<script src="js/stock.js"></script>
+<script src="js/logout.js"></script>
+
+<div
+    id="modalPorcionar"
+    class="modal"
+    style="display:none;"
+>
+
+    <div class="modal-content">
+
+        <h2>
+            🍰 Porcionar Torta
+        </h2>
+
+        <div class="form-group">
+
+            <label>
+                Torta
+            </label>
+
+            <select
+                id="productoPorcionar"
+            >
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Cantidad de Tortas
+            </label>
+
+            <input
+                type="number"
+                id="cantidadTortas"
+                min="1"
+                value="1"
+                oninput="calcularPorciones()"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Porciones por Torta
+            </label>
+
+            <input
+                type="number"
+                id="porcionesPorTorta"
+                min="1"
+                value="8"
+                oninput="calcularPorciones()"
+            >
+
+            <label>
+                Total Porciones
+            </label>
+
+            <input
+                type="number"
+                id="totalPorciones"
+                readonly
+                value="8"
+            >
+
+        </div>
+
+        <div class="form-row">
+
+            <button
+                class="btn"
+                onclick="guardarPorcionamiento()"
+            >
+                Aceptar
+            </button>
+
+            <button
+                class="btn"
+                onclick="cerrarModalPorcionar()"
+            >
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div
+    id="modalDescarte"
+    class="modal"
+    style="display:none;"
+>
+
+    <div class="modal-content">
+
+        <h2>
+            🗑 Registrar Descarte
+        </h2>
+
+        <div class="form-group">
+
+            <label>
+                Producto
+            </label>
+
+            <select
+                id="productoDescarte"
+            >
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Cantidad
+            </label>
+
+            <input
+                type="number"
+                id="cantidadDescarte"
+                min="1"
+                value="1"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Motivo
+            </label>
+
+            <input
+                type="text"
+                id="motivoDescarte"
+                placeholder="Ej: Vencido"
+            >
+
+        </div>
+
+        <div class="form-row">
+
+            <button
+                class="btn"
+                onclick="guardarDescarte()"
+            >
+                Aceptar
+            </button>
+
+            <button
+                class="btn"
+                onclick="cerrarModalDescarte()"
+            >
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

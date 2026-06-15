@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Ventas</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/sidebar.css">
+
+</head>
+
+<body>
+
+<div id="sidebar-container"></div>
+
+<div class="main">
+
+    <h1 class="page-title" id="tituloVentas">
+            🛒 Ventas
+        </h1>
+
+        <p class="page-subtitle" id="subtituloVentas">
+            Registro de ventas por tienda
+        </p>
+
+
+    <div class="card">
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label>
+                    Producto
+                </label>
+
+                <select id="productoVenta">
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+                    Cantidad
+                </label>
+
+                <input
+                    type="number"
+                    id="cantidadVenta"
+                    value="1"
+                    min="1"
+                >
+
+            </div>
+
+            <button
+                class="btn"
+                onclick="agregarProductoVenta()"
+            >
+                Agregar
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Subtotal</th>
+                    <th></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="detalleVenta">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="card">
+
+    <div class="form-group">
+
+        <label>
+            DNI Cliente
+        </label>
+
+        <div
+            style="
+                display:flex;
+                gap:10px;
+            "
+        >
+
+            <input
+                type="text"
+                id="dniCliente"
+                maxlength="8"
+                placeholder="00000000"
+            >
+
+            <button
+                type="button"
+                class="btn"
+                onclick="buscarDni()"
+            >
+                Buscar
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+
+        <label>
+            Cliente
+        </label>
+
+        <input
+            type="text"
+            id="nombreCliente"
+            readonly
+        >
+
+    </div>
+
+    <div class="form-group">
+
+        <label>
+            Método Pago
+        </label>
+
+        <select id="metodoPago">
+
+            <option value="EFECTIVO">
+                Efectivo
+            </option>
+
+            <option value="YAPE">
+                Yape
+            </option>
+
+            <option value="PLIN">
+                Plin
+            </option>
+
+            <option value="TARJETA">
+                Tarjeta
+            </option>
+
+        </select>
+
+    </div>
+
+    <center>
+        <h2 id="totalVenta">
+            Total: S/ 0
+        </h2>
+    </center>
+
+    <button
+        class="btn"
+        onclick="registrarVenta()"
+    >
+        Registrar Venta
+    </button>
+
+</div>
+
+
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/usuarioSidebar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qz-tray/qz-tray.js"></script>
+<script src="js/impresion.js"></script>
+<script src="js/ventas.js"></script>
+<script src="js/logout.js"></script>
+
+</body>
+</html>

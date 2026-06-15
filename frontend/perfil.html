@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Perfil</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/sidebar.css">
+
+
+</head>
+
+<body>
+
+<div id="sidebar-container"></div>
+
+<div class="main">
+
+    <div class="page-header">
+
+        <h1 class="page-title">
+            👤 Mi Perfil
+        </h1>
+
+        <p class="page-subtitle">
+            Gestión de contraseña
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+            Cambiar Contraseña
+        </h2>
+
+        <div class="password-container">
+
+            <input
+                type="password"
+                id="passwordNueva"
+                placeholder="Nueva contraseña"
+            >
+
+            <i
+                class="fa-solid fa-eye"
+                onclick="
+                togglePassword(
+                    'passwordNueva',
+                    this
+                )"
+            ></i>
+
+        </div>
+
+        <div class="password-container">
+
+            <input
+                type="password"
+                id="passwordConfirmar"
+                placeholder="Confirmar contraseña"
+            >
+
+            <i
+                class="fa-solid fa-eye"
+                onclick="
+                togglePassword(
+                    'passwordConfirmar',
+                    this
+                )"
+            ></i>
+
+        </div>
+
+        <div class="form-row">
+
+            <button
+                class="btn"
+                onclick="cambiarPassword()"
+            >
+                Guardar
+            </button>
+
+            <button
+                class="btn"
+                onclick="volverDashboard()"
+            >
+                Regresar
+            </button>
+
+        </div>
+
+        <p id="mensaje"></p>
+
+    </div>
+
+</div>
+
+<div class="login-link">
+    <a href="#" onclick="cerrarEIrLogin()">
+    iniciar sesión
+    </a>
+</div>
+
+<p id="mensaje"></p>
+
+</div>
+
+<script src="js/perfil.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/usuarioSidebar.js"></script>
+<script src="js/logout.js"></script>
+
+</body>
+</html>
