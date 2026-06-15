@@ -8,7 +8,7 @@ const authToken = localStorage.getItem("token");
 async function cargarProductos(){
 
     const respuesta = await fetch(
-        "http://localhost:3000/api/productos",
+        "https://sistema-dconsa-api.onrender.com/api/productos",
         {
             headers:{
                 Authorization:
@@ -136,7 +136,7 @@ async function guardarProducto(){
 
         await fetch(
 
-            `http://localhost:3000/api/productos/${productoEditando}`,
+            `https://sistema-dconsa-api.onrender.com/api/productos/${productoEditando}`,
 
             {
                 method:"PUT",
@@ -162,7 +162,7 @@ async function guardarProducto(){
     }else{
 
         const respuesta = await fetch(
-                "http://localhost:3000/api/productos",
+                "https://sistema-dconsa-api.onrender.com/api/productos",
                 {
                     method:"POST",
                     headers:{
@@ -248,7 +248,7 @@ async function desactivarProducto(id){
     }
 
     await fetch(
-        `http://localhost:3000/api/productos/${id}`,
+        `https://sistema-dconsa-api.onrender.com/api/productos/${id}`,
         {
             method:"DELETE",
             headers:{
@@ -320,7 +320,7 @@ function limpiarFormulario(){
 async function activarProducto(id){
 
     const respuesta = await fetch(
-        `http://localhost:3000/api/productos/activar/${id}`,
+        `https://sistema-dconsa-api.onrender.com/api/productos/activar/${id}`,
         {
             method:"PUT",
             headers:{

@@ -7,7 +7,7 @@ async function cargarDashboard(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/dashboard/resumen",
+        "https://sistema-dconsa-api.onrender.com/api/dashboard/resumen",
         {
             headers:{
                 Authorization:
@@ -49,7 +49,7 @@ async function cargarGraficoDia(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/dashboard/ventas-dia",
+        "https://sistema-dconsa-api.onrender.com/api/dashboard/ventas-dia",
         {
             headers:{
                 Authorization:
@@ -117,7 +117,7 @@ async function cargarGraficoMes(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/dashboard/ventas-mes",
+        "https://sistema-dconsa-api.onrender.com/api/dashboard/ventas-mes",
         {
             headers:{
                 Authorization:

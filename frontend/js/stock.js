@@ -56,7 +56,7 @@ async function registrarStock(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/stock/ingresar",
+        "https://sistema-dconsa-api.onrender.com/api/stock/ingresar",
         {
             method:"POST",
 
@@ -116,7 +116,7 @@ async function cargarProductos(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/productos",
+        "https://sistema-dconsa-api.onrender.com/api/productos",
         {
             headers:{
                 Authorization:
@@ -244,7 +244,7 @@ async function cargarStock(){
 
         const respuesta =
         await fetch(
-            `http://localhost:3000/api/stock/tienda/${tienda}`,
+            `https://sistema-dconsa-api.onrender.com/api/stock/tienda/${tienda}`,
             {
                 headers:{
                     Authorization:
@@ -415,7 +415,7 @@ async function guardarPorcionamiento(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/stock/porcionar",
+        "https://sistema-dconsa-api.onrender.com/api/stock/porcionar",
         {
             method:"POST",
 
@@ -556,7 +556,7 @@ async function guardarDescarte(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/stock/descartar",
+        "https://sistema-dconsa-api.onrender.com/api/stock/descartar",
         {
             method:"POST",
 

@@ -10,7 +10,7 @@ async function obtenerFechaServidor(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/sistema/fecha"
+        "https://sistema-dconsa-api.onrender.com/api/sistema/fecha"
     );
 
     const datos =
@@ -78,7 +78,7 @@ function crearCabecera(){
 
     const respuesta =
     await fetch(
-        `http://localhost:3000/api/ventas?fecha=${fecha}&tienda=${tienda}`,
+        `https://sistema-dconsa-api.onrender.com/api/ventas?fecha=${fecha}&tienda=${tienda}`,
         {
             headers:{
                 Authorization:
@@ -211,7 +211,7 @@ async function verDetalle(id){
 
     const respuesta =
     await fetch(
-        `http://localhost:3000/api/ventas/${id}`,
+        `https://sistema-dconsa-api.onrender.com/api/ventas/${id}`,
         {
             headers:{
                 Authorization:
@@ -268,7 +268,7 @@ async function reimprimirBoleta(id){
 
     const respuesta =
     await fetch(
-        `http://localhost:3000/api/ventas/${id}/boleta`,
+        `https://sistema-dconsa-api.onrender.com/api/ventas/${id}/boleta`,
         {
             headers:{
                 Authorization:
@@ -312,7 +312,7 @@ async function exportarExcel(){
 
     const respuesta =
     await fetch(
-        `http://localhost:3000/api/ventas/excel?fecha=${fecha}&tienda=${tienda}`,
+        `https://sistema-dconsa-api.onrender.com/api/ventas/excel?fecha=${fecha}&tienda=${tienda}`,
         {
             headers:{
                 Authorization:
@@ -382,7 +382,7 @@ async function exportarventasExcel(){
 
     const respuesta =
     await fetch(
-        `http://localhost:3000/api/ventas/excel?fecha=${fecha}&tienda=${tienda}`,
+        `https://sistema-dconsa-api.onrender.com/api/ventas/excel?fecha=${fecha}&tienda=${tienda}`,
         {
             headers:{
                 Authorization:

@@ -16,7 +16,7 @@ async function cargarDashboard(){
     )?.value;
 
     let url =
-    "http://localhost:3000/api/dashboard/resumen";
+    "https://sistema-dconsa-api.onrender.com/api/dashboard/resumen";
 
     if(
         fechaInicio &&
@@ -79,7 +79,7 @@ async function cargarGraficoDia(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/dashboard/ventas-dia",
+        "https://sistema-dconsa-api.onrender.com/api/dashboard/ventas-dia",
         {
             headers:{
                 Authorization:
@@ -147,7 +147,7 @@ async function cargarGraficoMes(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/dashboard/ventas-mes",
+        "https://sistema-dconsa-api.onrender.com/api/dashboard/ventas-mes",
         {
             headers:{
                 Authorization:
@@ -215,7 +215,7 @@ async function cargarGraficoTiendas(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/dashboard/comparativo-tiendas",
+        "https://sistema-dconsa-api.onrender.com/api/dashboard/comparativo-tiendas",
         {
             headers:{
                 Authorization:

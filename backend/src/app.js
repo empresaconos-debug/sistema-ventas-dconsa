@@ -1,6 +1,9 @@
 require("dotenv").config();
 
-console.log(process.env.DATABASE_URL);
+console.log(
+    "DATABASE_URL cargada:",
+    !!process.env.DATABASE_URL
+);
 
 const express = require("express");
 const cors = require("cors");
@@ -49,9 +52,18 @@ app.get("/test-db", async (req, res) => {
     }
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log("Servidor iniciado");
-});
+const PORT =
+process.env.PORT || 3000;
 
+app.listen(
+    PORT,
+    () => {
+
+        console.log(
+            `Servidor iniciado en puerto ${PORT}`
+        );
+
+    }
+);
 
 

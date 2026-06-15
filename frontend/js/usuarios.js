@@ -6,7 +6,7 @@ async function cargarUsuarios(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/usuarios",
+        "https://sistema-dconsa-api.onrender.com/api/usuarios",
         {
             headers:{
                 Authorization:
@@ -145,7 +145,7 @@ async function guardarUsuario(){
 
         respuesta =
         await fetch(
-            `http://localhost:3000/api/usuarios/${usuarioEditando}`,
+            `https://sistema-dconsa-api.onrender.com/api/usuarios/${usuarioEditando}`,
             {
                 method:"PUT",
 
@@ -191,7 +191,7 @@ async function guardarUsuario(){
 
         respuesta =
         await fetch(
-            "http://localhost:3000/api/usuarios",
+            "https://sistema-dconsa-api.onrender.com/api/usuarios",
             {
                 method:"POST",
 
@@ -312,7 +312,7 @@ async function cambiarPasswordUsuario(id){
     }
 
     await fetch(
-        `http://localhost:3000/api/usuarios/password/${id}`,
+        `https://sistema-dconsa-api.onrender.com/api/usuarios/password/${id}`,
         {
             method:"PUT",
 
@@ -348,7 +348,7 @@ async function desactivarUsuario(id){
     }
 
     await fetch(
-        `http://localhost:3000/api/usuarios/${id}`,
+        `https://sistema-dconsa-api.onrender.com/api/usuarios/${id}`,
         {
             method:"DELETE",
 
@@ -366,7 +366,7 @@ async function desactivarUsuario(id){
 async function activarUsuario(id){
 
     await fetch(
-        `http://localhost:3000/api/usuarios/activar/${id}`,
+        `https://sistema-dconsa-api.onrender.com/api/usuarios/activar/${id}`,
         {
             method:"PUT",
 

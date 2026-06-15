@@ -36,7 +36,7 @@ async function cambiarPassword(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/auth/cambiar-password",
+        "https://sistema-dconsa-api.onrender.com/api/auth/cambiar-password",
         {
             method:"PUT",
             headers:{

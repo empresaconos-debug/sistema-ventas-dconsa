@@ -4,7 +4,7 @@ async function cargarResumenCaja(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/cierre-caja/resumen",
+        "https://sistema-dconsa-api.onrender.com/api/cierre-caja/resumen",
         {
             headers:{
                 Authorization:
@@ -47,7 +47,7 @@ async function cargarDetalleCaja(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/cierre-caja/detalle",
+        "https://sistema-dconsa-api.onrender.com/api/cierre-caja/detalle",
         {
             headers:{
                 Authorization:
@@ -116,7 +116,7 @@ async function cerrarCaja(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/cierre-caja/cerrar",
+        "https://sistema-dconsa-api.onrender.com/api/cierre-caja/cerrar",
         {
             method:"POST",
 
@@ -477,7 +477,7 @@ async function cargarCierres(){
     ).value;
 
     let url =
-    "http://localhost:3000/api/cierre-caja";
+    "https://sistema-dconsa-api.onrender.com/api/cierre-caja";
 
     const params =
     new URLSearchParams();
@@ -598,7 +598,7 @@ async function verDetalleCierre(id){
 
     const respuesta =
     await fetch(
-        `http://localhost:3000/api/cierre-caja/${id}`,
+        `https://sistema-dconsa-api.onrender.com/api/cierre-caja/${id}`,
         {
             headers:{
                 Authorization:
@@ -783,7 +783,7 @@ async function verificarEstadoCaja(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/cierre-caja/estado",
+        "https://sistema-dconsa-api.onrender.com/api/cierre-caja/estado",
         {
             headers:{
                 Authorization:

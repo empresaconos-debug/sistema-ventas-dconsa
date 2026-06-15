@@ -15,7 +15,7 @@ async function cargarProductos(){
 
     const respuesta =
     await fetch(
-        "http://localhost:3000/api/stock/mi-tienda",
+        "https://sistema-dconsa-api.onrender.com/api/stock/mi-tienda",
         {
             headers:{
                 Authorization:
@@ -267,7 +267,7 @@ async function registrarVenta(){
 
         const respuesta =
         await fetch(
-            "http://localhost:3000/api/ventas",
+            "https://sistema-dconsa-api.onrender.com/api/ventas",
             {
                 method:"POST",
 
@@ -366,7 +366,7 @@ async function buscarDni(){
 
     const respuesta =
     await fetch(
-        `http://localhost:3000/api/reniec/dni/${dni}`
+        `https://sistema-dconsa-api.onrender.com/api/reniec/dni/${dni}`
     );
 
     const datos =
